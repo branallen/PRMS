@@ -56,7 +56,7 @@ LIBOBJS = \
 ####################################################
 $(TARGET): $(LIBOBJS) $(LIBS)
 	$(RM) $(TARGET)
-	$(CC) $(LDFLAGS) -o $(TARGET) $(LIBOBJS) $(LIBS) $(FLIBS)
+	$(ICC) $(LDFLAGS) -o $(TARGET) $(LIBOBJS) $(LIBS) $(FLIBS)
 
 #
 # Define all object files which make up the library
@@ -68,130 +68,130 @@ clean:
 	$(RM) *.o *.mod *~
 
 call_modules.o: call_modules.f90
-	$(FC) -c -pg $(FFLAGS) call_modules.f90
+	$(IFC) -c $(IFFLAGS) call_modules.f90
 
 basin_sum.o: basin_sum.f90 prms_module.mod prms_flowvars.mod prms_intcp.mod prms_snow.mod prms_srunoff.mod prms_gwflow.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod prms_obs.mod prms_muskingum.mod
-	$(FC) -c -pg $(FFLAGS) basin_sum.f90
+	$(IFC) -c $(IFFLAGS) basin_sum.f90
 
 subbasin.o: subbasin.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_set_time.mod prms_intcp.mod prms_srunoff.mod prms_soilzone.mod prms_gwflow.mod prms_lake_route.mod prms_snow.mod prms_climatevars.mod 
-	$(FC) -c -pg $(FFLAGS) subbasin.f90
+	$(IFC) -c $(IFFLAGS) subbasin.f90
 
 ddsolrad.o: ddsolrad.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_soltab.mod prms_set_time.mod prms_obs.mod
-	$(FC) -c -pg $(FFLAGS) ddsolrad.f90
+	$(IFC) -c $(IFFLAGS) ddsolrad.f90
 
 ccsolrad.o: ccsolrad.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_soltab.mod prms_set_time.mod prms_obs.mod
-	$(FC) -c -pg $(FFLAGS) ccsolrad.f90
+	$(IFC) -c $(IFFLAGS) ccsolrad.f90
 
 snowcomp.o: snowcomp.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_climatevars.mod prms_set_time.mod prms_intcp.mod
-	$(FC) -c -pg $(FFLAGS) snowcomp.f90
+	$(IFC) -c $(IFFLAGS) snowcomp.f90
 
 gwflow.o: gwflow.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_intcp.mod prms_srunoff.mod prms_soilzone.mod prms_cascade.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) gwflow.f90
+	$(IFC) -c $(IFFLAGS) gwflow.f90
 
 utils_prms.o: utils_prms.f90 prms_module.mod prms_basin.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) utils_prms.f90
+	$(IFC) -c $(IFFLAGS) utils_prms.f90
 
 prms_summary.o: prms_summary.f90 prms_module.mod prms_climatevars.mod prms_flowvars.mod prms_set_time.mod prms_obs.mod prms_intcp.mod prms_snow.mod prms_srunoff.mod prms_soilzone.mod prms_gwflow.mod
-	$(FC) -c -pg $(FFLAGS) prms_summary.f90
+	$(IFC) -c $(IFFLAGS) prms_summary.f90
 
 muskingum.o: muskingum.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_set_time.mod prms_obs.mod prms_srunoff.mod prms_gwflow.mod
-	$(IFC) -align array64byte -openmp -mmic -vec-report=3 -03 -c -pg $(FFLAGS) muskingum.f90
+	$(IFC) -c $(IFFLAGS) muskingum.f90
 
 intcp.o: intcp.f90 prms_module.mod prms_basin.mod prms_obs.mod prms_climatevars.mod prms_flowvars.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) intcp.f90
+	$(IFC) -c $(IFFLAGS) intcp.f90
 
 map_results.o: map_results.f90 prms_module.mod prms_basin.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) map_results.f90
+	$(IFC) -c $(IFFLAGS) map_results.f90
 
 nhru_summary.o: nhru_summary.f90 prms_module.mod prms_basin.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) nhru_summary.f90
+	$(IFC) -c $(IFFLAGS) nhru_summary.f90
 
 soltab.o: soltab.f90 prms_module.mod prms_basin.mod
-	$(FC) -c -pg $(FFLAGS) soltab.f90
+	$(IFC) -c $(IFFLAGS) soltab.f90
 
 frost_date.o: frost_date.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) frost_date.f90
+	$(IFC) -c $(IFFLAGS) frost_date.f90
 
 precip_1sta_laps.o: precip_1sta_laps.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod prms_obs.mod
-	$(FC) -c -pg $(FFLAGS) precip_1sta_laps.f90
+	$(IFC) -c $(IFFLAGS) precip_1sta_laps.f90
 
 transp_tindex.o: transp_tindex.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) transp_tindex.f90
+	$(IFC) -c $(IFFLAGS) transp_tindex.f90
 
 transp_frost.o: transp_frost.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) transp_frost.f90
+	$(IFC) -c $(IFFLAGS) transp_frost.f90
 
 temp_1sta_laps.o: temp_1sta_laps.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod prms_obs.mod
-	$(FC) -c -pg $(FFLAGS) temp_1sta_laps.f90
+	$(IFC) -c $(IFFLAGS) temp_1sta_laps.f90
 
 temp_dist2.o: temp_dist2.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod prms_obs.mod
-	$(FC) -c -pg $(FFLAGS) temp_dist2.f90
+	$(IFC) -c $(IFFLAGS) temp_dist2.f90
 
 precip_dist2.o: precip_dist2.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod prms_obs.mod
-	$(FC) -c -pg $(FFLAGS) precip_dist2.f90
+	$(IFC) -c $(IFFLAGS) precip_dist2.f90
 
 strmflow.o: strmflow.f90 prms_module.mod prms_basin.mod prms_obs.mod prms_flowvars.mod prms_gwflow.mod prms_srunoff.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) strmflow.f90
+	$(IFC) -c $(IFFLAGS) strmflow.f90
 
 strmflow_in_out.o: strmflow_in_out.f90 prms_module.mod prms_basin.mod prms_obs.mod prms_flowvars.mod prms_gwflow.mod prms_srunoff.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) strmflow_in_out.f90
+	$(IFC) -c $(IFFLAGS) strmflow_in_out.f90
 
 potet_jh.o: potet_jh.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) potet_jh.f90
+	$(IFC) -c $(IFFLAGS) potet_jh.f90
 
 potet_pt.o: potet_pt.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_soltab.mod prms_set_time.mod prms_climate_hru.mod
-	$(FC) -c -pg $(FFLAGS) potet_pt.f90
+	$(IFC) -c $(IFFLAGS) potet_pt.f90
 
 potet_hs.o: potet_hs.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) potet_hs.f90
+	$(IFC) -c $(IFFLAGS) potet_hs.f90
 
 potet_pm.o: potet_pm.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_soltab.mod prms_set_time.mod prms_climate_hru.mod
-	$(FC) -c -pg $(FFLAGS) potet_pm.f90
+	$(IFC) -c $(IFFLAGS) potet_pm.f90
 
 potet_pan.o: potet_pan.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_obs.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) potet_pan.f90
+	$(IFC) -c $(IFFLAGS) potet_pan.f90
 
 potet_hamon.o: potet_hamon.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_soltab.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) potet_hamon.f90
+	$(IFC) -c $(IFFLAGS) potet_hamon.f90
 
 write_climate_hru.o: write_climate_hru.f90  prms_module.mod prms_set_time.mod prms_climatevars.mod
-	$(FC) -c -pg $(FFLAGS) write_climate_hru.f90
+	$(IFC) -c $(IFFLAGS) write_climate_hru.f90
 
 climate_hru.o: climate_hru.f90 prms_module.mod prms_basin.mod prms_climatevars.mod prms_soltab.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) climate_hru.f90
+	$(IFC) -c $(IFFLAGS) climate_hru.f90
 
 cascade.o: cascade.f90 prms_module.mod prms_basin.mod
-	$(FC) -c -pg $(FFLAGS) cascade.f90
+	$(IFC) -c $(IFFLAGS) cascade.f90
 
 basin.o: basin.f90 prms_module.mod
-	$(FC) -c -pg $(FFLAGS) basin.f90
+	$(IFC) -c $(IFFLAGS) basin.f90
 
 obs.o: obs.f90 prms_module.mod prms_set_time.mod prms_basin.mod
-	$(FC) -c -pg $(FFLAGS) obs.f90
+	$(IFC) -c $(IFFLAGS) obs.f90
 
 srunoff.o: srunoff.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_climatevars.mod prms_cascade.mod prms_intcp.mod prms_snow.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) srunoff.f90
+	$(IFC) -c $(IFFLAGS) srunoff.f90
 
 climateflow.o: climateflow.f90 prms_module.mod prms_basin.mod prms_set_time.mod
-	$(FC) -c -pg $(FFLAGS) climateflow.f90
+	$(IFC) -c $(IFFLAGS) climateflow.f90
 
 soilzone.o: soilzone.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_snow.mod prms_climatevars.mod prms_cascade.mod prms_set_time.mod prms_intcp.mod prms_srunoff.mod
-	$(FC) -c -pg $(FFLAGS) soilzone.f90
+	$(IFC) -c $(IFFLAGS) soilzone.f90
 
 routing.o: routing.f90 prms_module.mod prms_basin.mod prms_gwflow.mod prms_flowvars.mod prms_set_time.mod prms_srunoff.mod prms_climatevars.mod
-	$(FC) -c -pg $(FFLAGS) routing.f90
+	$(IFC) -c $(IFFLAGS) routing.f90
 
 prms_time.o: prms_time.f90 prms_module.mod prms_basin.mod
-	$(FC) -c -pg $(FFLAGS) prms_time.f90
+	$(IFC) -c $(IFFLAGS) prms_time.f90
 
 strmflow_lake.o: strmflow_lake.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_lake_route.mod prms_routing.mod prms_obs.mod prms_set_time.mod prms_srunoff.mod prms_gwflow.mod
-	$(FC) -c -pg $(FFLAGS) strmflow_lake.f90
+	$(IFC) -c $(IFFLAGS) strmflow_lake.f90
 
 lake_route.o: lake_route.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_climatevars.mod prms_flowvars.mod prms_set_time.mod prms_srunoff.mod prms_soilzone.mod prms_gwflow.mod prms_obs.mod
-	$(FC) -c -pg $(FFLAGS) lake_route.f90
+	$(IFC) -c $(IFFLAGS) lake_route.f90
 
 water_balance.o: water_balance.f90 prms_module.mod prms_basin.mod prms_srunoff.mod prms_flowvars.mod prms_gwflow.mod prms_climatevars.mod prms_set_time.mod prms_cascade.mod prms_intcp.mod prms_snow.mod prms_soilzone.mod
-	$(FC) -c -pg $(FFLAGS) water_balance.f90
+	$(IFC) -c $(IFFLAGS) water_balance.f90
 
 prms_climatevars.mod: climateflow.o
 prms_flowvars.mod: climateflow.o

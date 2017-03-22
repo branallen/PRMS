@@ -23,7 +23,7 @@ SRCS = 	mmf.c parse_args.c alloc_space.c build_lists.c \
 MMFOBJS = ${SRCS:.c=.o}
 
 .c.o:
-	$(CC) $(CFLAGS) -pg -c $<
+	$(ICC) $(CFLAGS) -c $<
 
 #
 # Standard Targets for Users

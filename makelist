@@ -21,13 +21,14 @@ LDFLAGS		=$(OPTLEVEL)
 ##########################################################
 # Define the Fortran compile flags
 ##########################################################
-FFLAGS= $(OPTLEVEL) -pg -fbounds-check -Wall -fno-second-underscore
+FFLAGS= $(OPTLEVEL) -fbounds-check -Wall -fno-second-underscore
 #FFLAGS= $(OPTLEVEL) -Wall -fno-second-underscore
 FC		= gfortran
 
 ##########################################################
 # Define the Fortran intel compiler
 ##########################################################
+IFFLAGS= $(OPTLEVEL)
 IFC		= ifort
 
 ##########################################################
@@ -39,7 +40,7 @@ ICC		= icc
 # Define the C compile flags
 # -D_UF defines UNIX naming conventions for mixed language compilation.
 ##########################################################
-CFLAGS		= $(OPTLEVEL) -D$(ARC) -D_UF -pg
+CFLAGS		= $(OPTLEVEL) -D$(ARC) -D_UF
 CC		= gcc
 
 ##########################################################
