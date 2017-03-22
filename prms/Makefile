@@ -204,5 +204,5 @@ prms_intcp.mod: intcp.o
 prms_snow.mod: snowcomp.o
 prms_cascade.mod: cascade.o
 prms_set_time.mod: prms_time.o
-prms_soilzone: soilzone.o
-prms_srunoff: srunoff.o
+prms_soilzone.mod: soilzone.o
+prms_srunoff.mod: srunoff.o

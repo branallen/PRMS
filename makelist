@@ -15,20 +15,19 @@ MMFLIB      = $(LIBDIR)/libmmf.a
 ARC		= LINUX
 
 #OPTLEVEL	= -g
-OPTLEVEL	= -O -Bstatic -pg
+OPTLEVEL	= -O -pg
 LDFLAGS		=$(OPTLEVEL)
 
 ##########################################################
 # Define the Fortran compile flags
 ##########################################################
-FFLAGS= $(OPTLEVEL) -fbounds-check -Wall -fno-second-underscore
-#FFLAGS= $(OPTLEVEL) -Wall -fno-second-underscore
-FC		= gfortran
+FFLAGS= $(OPTLEVEL) -CB -warn
+FC		= ifort
 
 ##########################################################
 # Define the Fortran intel compiler
 ##########################################################
-IFFLAGS= $(OPTLEVEL)
+IFFLAGS= $(OPTLEVEL) -CB -warn
 IFC		= ifort
 
 ##########################################################
@@ -41,13 +40,13 @@ ICC		= icc
 # -D_UF defines UNIX naming conventions for mixed language compilation.
 ##########################################################
 CFLAGS		= $(OPTLEVEL) -D$(ARC) -D_UF
-CC		= gcc
+#CC		= gcc
 
 ##########################################################
 # Define the libraries
 ##########################################################
 MATHLIB		= -lm
-GCLIB		= -lgfortran -lgcc $(MATHLIB)
+GCLIB		= -lifcore -lgcc $(MATHLIB)
 FLIBS    = $(GCLIB)
 
 ##########################################################
