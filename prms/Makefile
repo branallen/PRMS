@@ -95,7 +95,7 @@ prms_summary.o: prms_summary.f90 prms_module.mod prms_climatevars.mod prms_flowv
 	$(FC) -c -pg $(FFLAGS) prms_summary.f90
 
 muskingum.o: muskingum.f90 prms_module.mod prms_basin.mod prms_flowvars.mod prms_set_time.mod prms_obs.mod prms_srunoff.mod prms_gwflow.mod
-	$(FC) -c -pg $(FFLAGS) muskingum.f90
+	$(IFC) -align array64byte -openmp -mmic -vec-report=3 -03 -c -pg $(FFLAGS) muskingum.f90
 
 intcp.o: intcp.f90 prms_module.mod prms_basin.mod prms_obs.mod prms_climatevars.mod prms_flowvars.mod prms_set_time.mod
 	$(FC) -c -pg $(FFLAGS) intcp.f90

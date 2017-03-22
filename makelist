@@ -26,6 +26,16 @@ FFLAGS= $(OPTLEVEL) -pg -fbounds-check -Wall -fno-second-underscore
 FC		= gfortran
 
 ##########################################################
+# Define the Fortran intel compiler
+##########################################################
+IFC		= ifort
+
+##########################################################
+# Define the C intel compiler and flags
+##########################################################
+ICC		= icc
+
+##########################################################
 # Define the C compile flags
 # -D_UF defines UNIX naming conventions for mixed language compilation.
 ##########################################################
