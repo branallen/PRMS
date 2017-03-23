@@ -9,7 +9,7 @@ PRMSDIR    = ./prms
 BINDIR      = ../bin
 MMFLIB      = $(LIBDIR)/libmmf.a
 
-#########################################################
+##########################################################
 # Configure tags for each system
 ##########################################################
 ARC		= LINUX
@@ -21,13 +21,13 @@ LDFLAGS		=$(OPTLEVEL)
 ##########################################################
 # Define the Fortran compile flags
 ##########################################################
-FFLAGS= $(OPTLEVEL) -CB -warn
+FFLAGS= $(OPTLEVEL) -CB -warn -align array64byte
 FC		= ifort
 
 ##########################################################
 # Define the Fortran intel compiler
 ##########################################################
-IFFLAGS= $(OPTLEVEL) -CB -warn
+IFFLAGS= $(OPTLEVEL) -CB -warn -align array64byte
 IFC		= ifort
 
 ##########################################################

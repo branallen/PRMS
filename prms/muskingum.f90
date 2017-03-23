@@ -392,6 +392,7 @@
       Inflow_ts = 0.0D0
       Currinsum = 0.0D0
 
+
 ! 24 hourly timesteps per day
       DO j = 1, 24
 
